@@ -17,6 +17,11 @@
     * Select the repository folder (`WellMo`)
 11. Start the server `npm run dev -- --open`
 12. Begin coding
+13. Push your changes to the branch:
+    * git add *
+    * git commit -m "write about what you did here"
+    * git push
+    * git pull
 
 ## Helpful Sources
 
