@@ -16,3 +16,8 @@
     * Select the repository folder (`WellMo`)
 10. Start the server `npm run dev -- --open`
 11. Begin coding
+
+## Helpful Sources
+
+* Docs: https://kit.svelte.dev/docs
+* Routing (what the different files mean): https://kit.svelte.dev/docs/routing
