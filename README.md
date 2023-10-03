@@ -1,2 +1,18 @@
-# WellMo
-Software Engineering COSC 4319
+## Set-up
+
+1. Download git (https://git-scm.com/downloads)
+2. Download NodeJS LTS (https://nodejs.org/en)
+3. Download Visual Studio **Code** (https://code.visualstudio.com/download)
+    * Install the Svelte extension (https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode)
+4. Restart your computer
+5. Make a folder where you want to put the repository and navigate a terminal to it `cd github`
+6. Clone the repository in the folder `git clone https://github.com/kaseys117/WellMo.git`
+7. Cd into the folder `cd WellMo`
+8. Install the project `npm install`
+9. Open the project in VS Code
+    * Open VS Code
+    * Press Ctrl + Shift + P
+    * Type `File: Open Folder` and press enter
+    * Select the repository folder (`WellMo`)
+10. Start the server `npm run dev -- --open`
+11. Begin coding
