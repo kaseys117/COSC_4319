@@ -9,13 +9,14 @@
 6. Clone the repository in the folder `git clone https://github.com/kaseys117/WellMo.git`
 7. Cd into the folder `cd WellMo`
 8. Install the project `npm install`
-9. Open the project in VS Code
+9. **Switch to the development branch** (`git checkout dev`)
+10. Open the project in VS Code
     * Open VS Code
     * Press Ctrl + Shift + P
     * Type `File: Open Folder` and press enter
     * Select the repository folder (`WellMo`)
-10. Start the server `npm run dev -- --open`
-11. Begin coding
+11. Start the server `npm run dev -- --open`
+12. Begin coding
 
 ## Helpful Sources
 
