@@ -1,2 +1,2 @@
-# COSC_4319
-Software Engineering
+# WellMo
+Software Engineering COSC 4319
