@@ -1,13 +1,17 @@
-<!-- UI components that should be visible in all screens go here (ex: header, menu, etc.) -->
-<style>
-    @import '../lib/reset.css';
-    @import '../lib/normalize.css';
+<script>
+    import { onMount } from "svelte";
+    import { invalidateAll } from '$app/navigation';
+    import { supabaseClient } from '$lib/supabase';
 
-    slot {
-        width: 100%;
-        height: 100vh;
-    }
-</style>
+    onMount(() => {
+        const { data: { subscription }} = supabaseClient.auth.onAuthStateChange(() => {
+            invalidateAll();
+        });
 
+        return () => {
+            subscription.unsubscribe();
+        };
+    });
+</script>
 
 <slot />
