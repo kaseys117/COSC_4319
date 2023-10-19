@@ -33,3 +33,4 @@
 * Tutorial: https://learn.svelte.dev/tutorial/introducing-sveltekit
 * Routing (what the different files mean): https://kit.svelte.dev/docs/routing
 * Project Board: https://github.com/users/kaseys117/projects/4/views/1
+* SvelteKit Crash Course Video: https://youtu.be/MoGkX4RvZ38
