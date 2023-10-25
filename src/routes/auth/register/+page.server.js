@@ -7,7 +7,7 @@ export const actions = {
     const email = formData.get('email')
     const password = formData.get('password')
 
-    const { error } = await supabase.auth.signInWithPassword({
+    const { error } = await supabase.auth.signUp({
       email,
       password,
     })
@@ -30,6 +30,6 @@ export const actions = {
       })
     }
 
-    throw redirect(303, '/dashboard')
+    throw redirect(303, '/auth/login?emailSent=true')
   },
 }
