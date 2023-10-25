@@ -1,4 +1,6 @@
-<slot />
+<div class="container">
+    <slot />
+</div>
 <footer>
     <a href="/dashboard/diet"><button>Diet</button></a>
     <a href="/dashboard/mood"><button>Mood</button></a>
@@ -6,10 +8,18 @@
 </footer>
 
 <style>
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 90vh;
+    }
     footer {
         display: flex;
-        justify-content: space-between;
+        align-content: center;
         position: sticky;
+        height: 10vh;
         top: 100vh;
     }
 
@@ -22,5 +32,9 @@
         border: none;
         border-radius: 5px;
         cursor: pointer;
+        height: 100%;
+    }
+    a {
+        width: 100%;
     }
 </style>
