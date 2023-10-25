@@ -1,1 +1,6 @@
-<h1>Registration stuff goes here</h1>
+<script>
+    import Register from "$lib/components/forms/register.svelte";
+</script>
+
+<Register />
+<a href="/auth/login">Log In</a>
