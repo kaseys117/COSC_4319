@@ -18,13 +18,50 @@
             stroke-width="5"
         />
     </svg>
+    <div class="header">WellMo</div>
 
     <form method="post" use:enhance>
-        <input name="email" value={form?.email ?? ""} />
-        <input type="password" name="password" />
-        <button>Sign up</button>
+        <!-- `form?.email ?? ""` store the email into the form.email attribute, and stores an empty string if no value.  -->
+        <input
+            name="email"
+            type="email"
+            placeholder="email"
+            value={form?.email ?? ""}
+        />
+        <input name="password" type="password" placeholder="password" />
+        <button>Log In</button>
     </form>
 </div>
 
 <style>
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        place-items: center;
+        height: 100vh;
+        gap: 1em;
+    }
+
+    .header {
+        font-size: 2em;
+        font-weight: bold;
+        margin-bottom: 1em;
+    }
+
+    button {
+        padding: 10px 20px;
+        width: 100%;
+        font-size: 1em;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 1em;
+    }
+
+    form {
+        display: grid;
+        grid-template-rows: repeat(2, 2em) 1fr;
+        gap: 0.25em;
+    }
 </style>
