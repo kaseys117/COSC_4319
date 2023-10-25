@@ -1,14 +1,10 @@
 <!-- Landing page for WellMo -->
-<script>
-    // No script needed for this simple page
-</script>
-
 <div class="container">
     <div class="header">WellMo</div>
-    <a href="/login">
+    <a href="/auth/login">
         <button class="button">Log In</button>
     </a>
-    <a href="/register">
+    <a href="/auth/register">
         <button class="button">Register</button>
     </a>
 </div>
