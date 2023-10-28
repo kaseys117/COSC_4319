@@ -17,6 +17,8 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@sveltejs/adapter-vercel": "^3.0.3"
+		"@sveltejs/adapter-vercel": "^3.0.3",
+		"z": "^1.0.9",
+		"zod-form-data": "^2.0.2"
 	}
 }
