@@ -1,5 +1,8 @@
 <!-- Mobile landing page for WellMo -->
 <script>
+    import undraw_explore from "$lib/assets/undraw_explore.svg";
+    import undraw_park from "$lib/assets/undraw_a_day_at_the_park.svg";
+    import undraw_charts from "$lib/assets/undraw_charts.svg";
     function inView(node, params = {}) {
         // Used to check when an element is enters or exits the viewport
         let observer;
@@ -38,20 +41,36 @@
     <div id="carousel">
         <div class="slide-1" use:inView on:enter={() => (activeDot = 1)}>
             <div class="content">
+                <img
+                    src={undraw_explore}
+                    alt="a person looking at a mountain scene"
+                />
                 <h2>Welcome to WellMo</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p>
+                    your personal wellness companion. Achieve your health and
+                    fitness goals with our intuitive tracking features,
+                    personalized recommendations.
+                </p>
             </div>
         </div>
         <div class="slide-2" use:inView on:enter={() => (activeDot = 2)}>
             <div class="content">
+                <img src={undraw_park} alt="A man walking a dog in the park" />
                 <h2>Log your day</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p>
+                    Keep track of how you feel through out the day, including
+                    your diet, mood and sleep.
+                </p>
             </div>
         </div>
         <div class="slide-3" use:inView on:enter={() => (activeDot = 3)}>
             <div class="content">
+                <img src={undraw_charts} alt="A person looking at a chart" />
                 <h2>View your patterns</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p>
+                    Over time, you'll be able to identify patterns and the
+                    things that affect your health.
+                </p>
             </div>
         </div>
     </div>
@@ -78,16 +97,15 @@
         /* justify-items: center; */
         align-items: stretch;
         height: 100vh;
-        gap: 1em;
+        gap: 0.5em;
         padding: 2em;
     }
     #carousel {
         display: flex;
         overflow-x: auto;
         scroll-snap-type: x mandatory;
-        scroll-behavior: smooth;
         -webkit-overflow-scrolling: touch;
-        gap: 1em;
+        gap: 4em;
     }
     #carousel::-webkit-scrollbar {
         display: none;
@@ -99,6 +117,7 @@
         width: 100%;
         height: 100%;
         scroll-snap-align: start;
+        /* background-color: green; */
     }
     .dots {
         justify-self: center;
@@ -117,7 +136,7 @@
     .login {
         background-color: var(--color-surface-50);
         color: var(--theme-font-color-base);
-        outline: 1px solid var(--color-primary-500);
+        border: 1px solid var(--color-primary-500);
     }
     .register {
         background-color: var(--color-surface-200);
@@ -128,5 +147,8 @@
     a {
         width: 100%;
         height: 4.5em;
+    }
+    img {
+        margin: 4em 0;
     }
 </style>

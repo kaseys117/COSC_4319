@@ -98,17 +98,63 @@
 }
 
 button {
-    padding: 10px 20px;
+    padding: 1em 2em;
+    height: 3.5em;
     font-size: 1em;
     border: none;
     border-radius: var(--theme-rounded-base);
     cursor: pointer;
     margin: auto;
-    background-color: var(--color-secondary-500);
-    color: var(--on-secondary);
+    background-color: var(--color-surface-200);
+    color: var(--theme-font-color-base);
     font-weight: bold;
 }
 
 body {
     background-color: var(--color-surface-50);
+}
+
+.btn-primary {
+    background-color: var(--color-primary-500);
+    color: var(--on-primary);
+}
+
+.btn-secondary {
+    background-color: var(--color-secondary-500);
+    color: var(--on-secondary);
+}
+
+.btn-tertiary {
+    background-color: var(--color-tertiary-500);
+    color: var(--on-tertiary);
+}
+
+.warning {
+    background-color: var(--color-warning-500);
+    color: var(--on-warning);
+}
+
+.success {
+    background-color: var(--color-success-500);
+    color: var(--on-success);
+}
+
+.border {
+    border: var(--theme-border-base) solid var(--color-surface-200);
+    border-radius: var(--theme-rounded-container);
+}
+
+.input-field {
+    padding: 1em 0.5em;
+    height: 3.5em;
+    border: var(--theme-border-base) solid var(--color-surface-400);
+    border-radius: var(--theme-rounded-base);
+    color: var(--theme-font-color-base);
+    background-color: var(--color-surface-100);
+}
+
+.input-field:focus {
+    border: var(--theme-border-base) solid var(--color-primary-500);
+    background-color: var(--color-surface-50);
+    outline: none;
 }

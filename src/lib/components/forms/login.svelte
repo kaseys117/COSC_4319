@@ -7,6 +7,7 @@
 <form method="POST" use:enhance>
     <!-- `form?.email ?? ""` store the email into the form.email attribute, and stores an empty string if no value.  -->
     <input
+        class="input-field"
         name="email"
         type="email"
         placeholder="email"
@@ -15,24 +16,30 @@
         title="must be a valid email address"
         required
     />
-    <input name="password" type="password" placeholder="password" required />
-    <button>Log In</button>
+    <input
+        class="input-field"
+        name="password"
+        type="password"
+        placeholder="password"
+        required
+    />
+    <button class="btn-primary">Log In</button>
 </form>
 
 <style>
-    button {
-        padding: 10px 20px;
-        width: 100%;
-        font-size: 1em;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        margin-top: 1em;
+    h1 {
+        font-size: 3em;
     }
-
+    button {
+        margin-top: 1em;
+        width: 100%;
+        height: 4em;
+    }
     form {
         display: grid;
-        grid-template-rows: repeat(2, 2em) 1fr;
-        gap: 0.25em;
+        grid-template-rows: auto auto auto;
+        gap: 0.5em;
+        height: fit-content;
+        /* justify-items: stretch; */
     }
 </style>

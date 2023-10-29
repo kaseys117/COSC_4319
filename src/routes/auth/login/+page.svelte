@@ -6,50 +6,131 @@
 
     const url = $page.url;
 
-    let showModal = url.searchParams.get("emailSent");
-    let progress = 0;
+    let showToast = url.searchParams.get("emailSent");
+    let progress = 100;
 
     onMount(() => {
-        if (showModal) {
+        if (showToast) {
             const interval = setInterval(() => {
-                progress += 10;
-                if (progress >= 115) {
+                progress -= 10;
+                if (progress <= -10) {
                     clearInterval(interval);
-                    showModal = false;
+                    showToast = false;
                 }
             }, 500);
         }
     });
 </script>
 
+<a class="row-1" href="/">
+    <svg
+        class="back-arrow border"
+        style="enable-background:new 0 0 512 512;"
+        version="1.1"
+        viewBox="0 0 512 512"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+    >
+        <polygon
+            points="352,128.4 319.7,96 160,256 160,256 160,256 319.7,416 352,383.6 224.7,256 "
+        />
+    </svg>
+</a>
+
+<a class="row-1 register" href="/auth/register">Register</a>
+
 <EmailAuth />
 
-<a href="/auth/register">Register</a>
+<a href="/auth/forgot">Reset Password</a>
 
-{#if showModal}
-    <div class="modal" transition:fade>
-        <p>
-            Check your email for confirmation to finish creating your account.
-        </p>
+<div class="OAuth">
+    <h2>or login with</h2>
+    <a href="/auth/google"
+        ><svg
+            class="icon border"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 50 50"
+        >
+            <path
+                d="M 25.996094 48 C 13.3125 48 2.992188 37.683594 2.992188 25 C 2.992188 12.316406 13.3125 2 25.996094 2 C 31.742188 2 37.242188 4.128906 41.488281 7.996094 L 42.261719 8.703125 L 34.675781 16.289063 L 33.972656 15.6875 C 31.746094 13.78125 28.914063 12.730469 25.996094 12.730469 C 19.230469 12.730469 13.722656 18.234375 13.722656 25 C 13.722656 31.765625 19.230469 37.269531 25.996094 37.269531 C 30.875 37.269531 34.730469 34.777344 36.546875 30.53125 L 24.996094 30.53125 L 24.996094 20.175781 L 47.546875 20.207031 L 47.714844 21 C 48.890625 26.582031 47.949219 34.792969 43.183594 40.667969 C 39.238281 45.53125 33.457031 48 25.996094 48 Z"
+            />
+        </svg></a
+    >
+    <a href="/auth/apple"
+        ><svg
+            class="icon border"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 50 50"
+        >
+            <path
+                d="M 44.527344 34.75 C 43.449219 37.144531 42.929688 38.214844 41.542969 40.328125 C 39.601563 43.28125 36.863281 46.96875 33.480469 46.992188 C 30.46875 47.019531 29.691406 45.027344 25.601563 45.0625 C 21.515625 45.082031 20.664063 47.03125 17.648438 47 C 14.261719 46.96875 11.671875 43.648438 9.730469 40.699219 C 4.300781 32.429688 3.726563 22.734375 7.082031 17.578125 C 9.457031 13.921875 13.210938 11.773438 16.738281 11.773438 C 20.332031 11.773438 22.589844 13.746094 25.558594 13.746094 C 28.441406 13.746094 30.195313 11.769531 34.351563 11.769531 C 37.492188 11.769531 40.8125 13.480469 43.1875 16.433594 C 35.421875 20.691406 36.683594 31.78125 44.527344 34.75 Z M 31.195313 8.46875 C 32.707031 6.527344 33.855469 3.789063 33.4375 1 C 30.972656 1.167969 28.089844 2.742188 26.40625 4.78125 C 24.878906 6.640625 23.613281 9.398438 24.105469 12.066406 C 26.796875 12.152344 29.582031 10.546875 31.195313 8.46875 Z"
+            />
+        </svg></a
+    >
+    <a href="/auth/discord"
+        ><svg
+            class="icon border"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 50 50"
+        >
+            <path
+                d="M42.298,11.65c-0.676-1.021-1.633-1.802-2.768-2.256c-2.464-0.988-4.583-1.648-6.479-2.02	C31.721,7.114,30.404,7.768,29.771,9l-0.158,0.308c-1.404-0.155-2.895-0.207-4.593-0.164c-1.741-0.042-3.237,0.009-4.643,0.164	L20.22,9c-0.633-1.232-1.952-1.885-3.279-1.625c-1.896,0.371-4.016,1.031-6.479,2.02c-1.134,0.454-2.091,1.234-2.768,2.256	c-4.721,7.131-6.571,14.823-5.655,23.517c0.032,0.305,0.202,0.578,0.461,0.741c3.632,2.29,6.775,3.858,9.891,4.936	c1.303,0.455,2.748-0.054,3.517-1.229l1.371-2.101c-1.092-0.412-2.158-0.9-3.18-1.483c-0.479-0.273-0.646-0.884-0.373-1.363	c0.273-0.481,0.884-0.65,1.364-0.373c3.041,1.734,6.479,2.651,9.942,2.651s6.901-0.917,9.942-2.651	c0.479-0.277,1.09-0.108,1.364,0.373c0.273,0.479,0.106,1.09-0.373,1.363c-1.056,0.603-2.16,1.105-3.291,1.524l1.411,2.102	c0.581,0.865,1.54,1.357,2.528,1.357c0.322,0,0.647-0.053,0.963-0.161c3.125-1.079,6.274-2.649,9.914-4.944	c0.259-0.163,0.429-0.437,0.461-0.741C48.869,26.474,47.019,18.781,42.298,11.65z M18.608,28.983c-1.926,0-3.511-2.029-3.511-4.495	c0-2.466,1.585-4.495,3.511-4.495s3.511,2.029,3.511,4.495C22.119,26.954,20.534,28.983,18.608,28.983z M31.601,28.957	c-1.908,0-3.478-2.041-3.478-4.522s1.57-4.522,3.478-4.522c1.908,0,3.478,2.041,3.478,4.522S33.509,28.957,31.601,28.957z"
+            />
+        </svg></a
+    >
+</div>
+
+{#if showToast}
+    <div class="toast border row-1" transition:fade>
+        <p>Confirm your email before loging in.</p>
         <div class="progress" style="width: {progress}%" />
     </div>
 {/if}
 
+<!-- TODO: Add Oauth Login down here -->
+
 <style>
-    .modal {
-        width: 80%;
-        background-color: white;
-        border: 3px solid black;
-        /* padding: 0.5em; */
-        font-family: sans-serif;
-        font-weight: bold;
+    .row-1 {
+        grid-row: 1;
+        grid-column: 1;
+    }
+    .toast {
+        width: 100%;
+        height: fit-content;
+        background-color: var(--color-surface-100);
+        bottom: 20vh;
     }
     .progress {
         transition: width 1s linear;
-        border-bottom: 4px solid orange;
+        height: 0.25em;
+        background-color: var(--color-success-500);
+        border-bottom-left-radius: var(--theme-rounded-base);
         position: relative;
     }
-    p {
+    .toast > p {
         margin: 1em;
+    }
+    .back-arrow {
+        width: 4em;
+        height: 4em;
+        border-width: 2px;
+        justify-self: start;
+    }
+    .register {
+        padding: 1em 0;
+        justify-self: end;
+    }
+    .icon {
+        width: 4em;
+        height: 4em;
+        padding: 0.75em;
+        border-width: 2px;
+    }
+    .OAuth {
+        justify-self: center;
+    }
+    h2 {
+        text-align: center;
+        padding-bottom: 1em;
     }
 </style>

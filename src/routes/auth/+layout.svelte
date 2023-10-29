@@ -4,11 +4,13 @@
 
 <style>
     .container {
-        display: flex;
+        /* display: flex;
         flex-direction: column;
-        justify-content: center;
-        place-items: center;
+        justify-content: center; */
+        display: grid;
+        grid-template-columns: 1fr;
+        padding: 2em;
         height: 100vh;
-        gap: 1em;
+        gap: 2em;
     }
 </style>
