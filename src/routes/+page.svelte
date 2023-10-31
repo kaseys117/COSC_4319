@@ -34,11 +34,13 @@
             },
         };
     }
-    let activeDot = 1;
+    let activeDot = 1; // Make the first dot active by default
 </script>
 
 <div class="container">
+    <!-- TODO: Make headings match heigh accross all slides -->
     <div id="carousel">
+        <!-- When slide 1 comes into view, activate dot 1 (ie. Make dot 1 solid) -->
         <div class="slide-1" use:inView on:enter={() => (activeDot = 1)}>
             <div class="content">
                 <img
@@ -53,6 +55,7 @@
                 </p>
             </div>
         </div>
+        <!-- When slide 2 comes into view activate dot 2 -->
         <div class="slide-2" use:inView on:enter={() => (activeDot = 2)}>
             <div class="content">
                 <img src={undraw_park} alt="A man walking a dog in the park" />
@@ -63,6 +66,7 @@
                 </p>
             </div>
         </div>
+        <!-- When slide 3 comes into view activate dot 3 -->
         <div class="slide-3" use:inView on:enter={() => (activeDot = 3)}>
             <div class="content">
                 <img src={undraw_charts} alt="A person looking at a chart" />
@@ -75,6 +79,7 @@
         </div>
     </div>
     <div class="dots">
+        <!-- Make a certain dot active (solid) depending on the value of activeDot -->
         <span class:active={activeDot === 1} />
         <span class:active={activeDot === 2} />
         <span class:active={activeDot === 3} />
