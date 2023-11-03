@@ -4,6 +4,7 @@
 </script>
 
 <h1>Log In</h1>
+<!-- TODO: Make form into reusable component -->
 <form method="POST" use:enhance>
     <!-- `form?.email ?? ""` store the email into the form.email attribute, and stores an empty string if no value.  -->
     <input

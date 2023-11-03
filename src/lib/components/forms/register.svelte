@@ -10,6 +10,7 @@
     let notValidPassword = true;
 
     function validatePassword() {
+        // Checks if the password has at least 1 capital letter, 1 lowercase letter, 1 special character, 1 number, and is at least 8 characters long
         const capitalRegex = /[A-Z]/;
         const lowercaseRegex = /[a-z]/;
         const specialCharRegex = /[!@#$%^&*(),.?":{}|<>]/;
@@ -33,6 +34,7 @@
 
 <h1>Register</h1>
 <form method="POST" use:enhance>
+    <!-- TODO: Use zod and SuperForms for validation -->
     <input
         name="email"
         type="email"
@@ -56,6 +58,7 @@
     >
 </form>
 <ul>
+    <!-- Change the class (which changes the ❌ to a ✅) if the password satisfies the requirement -->
     <li class:ok={minLength}>At least 8 characters</li>
     <li class:ok={hasCapital}>At least 1 capital letter</li>
     <li class:ok={hasLower}>At least 1 lowercase letter</li>
