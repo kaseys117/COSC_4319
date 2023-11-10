@@ -21,7 +21,7 @@ export const handle = async ({ event, resolve }) => {
     return session
   }
 
-  if (event.url.pathname.startsWith('/dashboard')) {
+  if (event.url.pathname.startsWith('/app')) {
     const session = await event.locals.getSession()
     if (!session) {
       throw redirect(303, '/auth/login')
