@@ -3,13 +3,20 @@ import { AuthApiError } from '@supabase/supabase-js'
 
 export const actions = {
   default: async ({ request, locals: { supabase } }) => {
-    const formData = await request.formData()
-    const email = formData.get('email')
-    const password = formData.get('password')
+    const formData = await request.formData() // get form data when user hits register button
+    const email = formData.get('email') // get email from form data
+    const password = formData.get('password') // get password from form data
+    const nickname = formData.get('nickname') // get nickname from form data
 
+    // register user with email and password, and store the nickname in the metadata
     const { error } = await supabase.auth.signUp({
       email,
       password,
+      options: {
+        data: {
+          nickname: nickname
+        }
+      }
     })
 
     if (error) {

@@ -1,11 +1,10 @@
 <script>
     export let data;
     console.log(data);
-    const { id } = data.session.user; // Replace with actual user name
-    const truncatedId = id.slice(0, 8);
+    const { nickname } = data.session.user.user_metadata; // Replace with actual user name
 </script>
 
-<h1>Welcome, {truncatedId}</h1>
+<h1>Welcome, {nickname}</h1>
 <div class="menu">
     <p>Log your</p>
     <a href="/app/sleep"><button class="btn-secondary">Sleep</button></a>
