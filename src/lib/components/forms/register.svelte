@@ -36,6 +36,14 @@
 <form method="POST" use:enhance>
     <!-- TODO: Use zod and SuperForms for validation -->
     <input
+        class="input-field"
+        type="text"
+        placeholder="nickname"
+        name="nickname"
+        required
+    />
+    <input
+        class="input-field"
         name="email"
         type="email"
         placeholder="email"
@@ -45,6 +53,7 @@
         required
     />
     <input
+        class="input-field"
         name="password"
         type="password"
         placeholder="password"
@@ -53,8 +62,10 @@
         required
     />
 
-    <button on:click={validatePassword} disabled={notValidPassword}
-        >Register</button
+    <button
+        class="btn-primary"
+        on:click={validatePassword}
+        disabled={notValidPassword}>Register</button
     >
 </form>
 <ul>
@@ -67,8 +78,8 @@
 </ul>
 
 <style>
-    ul {
-        font-size: 0.75em;
+    h1 {
+        font-size: 3em;
     }
     li {
         color: hsl(0, 90%, 50%);
@@ -89,7 +100,7 @@
     }
     form {
         display: grid;
-        grid-template-rows: repeat(2, 2em) 1fr;
-        gap: 0.25em;
+        grid-template-rows: auto auto 1fr;
+        gap: 0.5em;
     }
 </style>

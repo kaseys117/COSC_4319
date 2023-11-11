@@ -86,7 +86,7 @@
     </div>
     <div class="buttons">
         <a href="/auth/register">
-            <button class="register">Sign Up</button>
+            <button class="register">Register</button>
         </a>
         <a href="/auth/login">
             <button class="login">Log In</button>

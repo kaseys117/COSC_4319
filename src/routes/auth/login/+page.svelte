@@ -3,6 +3,7 @@
     import EmailAuth from "$lib/components/forms/login.svelte";
     import { fade } from "svelte/transition";
     import { onMount } from "svelte";
+    import IconBack from "~icons/mdi/chevron-left";
 
     const url = $page.url;
 
@@ -22,19 +23,8 @@
     });
 </script>
 
-<a class="row-1" href="/">
-    <svg
-        class="back-arrow border"
-        style="enable-background:new 0 0 512 512;"
-        version="1.1"
-        viewBox="0 0 512 512"
-        xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
-    >
-        <polygon
-            points="352,128.4 319.7,96 160,256 160,256 160,256 319.7,416 352,383.6 224.7,256 "
-        />
-    </svg>
+<a class="row-1 back-arrow" href="/">
+    <IconBack class="border" />
 </a>
 
 <a class="row-1 register" href="/auth/register">Register</a>
@@ -87,8 +77,6 @@
     </div>
 {/if}
 
-<!-- TODO: Add Oauth Login down here -->
-
 <style>
     .row-1 {
         grid-row: 1;
@@ -110,11 +98,9 @@
     .toast > p {
         margin: 1em;
     }
-    .back-arrow {
-        width: 4em;
-        height: 4em;
-        border-width: 2px;
-        justify-self: start;
+    a.back-arrow {
+        font-size: 4em;
+        color: inherit;
     }
     .register {
         padding: 1em 0;

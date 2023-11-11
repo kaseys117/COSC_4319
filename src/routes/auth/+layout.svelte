@@ -10,7 +10,7 @@
         display: grid;
         grid-template-columns: 1fr;
         padding: 2em;
-        height: 100vh;
+        height: fit-content;
         gap: 2em;
     }
 </style>
