@@ -129,6 +129,11 @@ body {
     color: var(--on-tertiary);
 }
 
+.error {
+    background-color: var(--color-error-500);
+    color: var(--on-error);
+}
+
 .warning {
     background-color: var(--color-warning-500);
     color: var(--on-warning);
