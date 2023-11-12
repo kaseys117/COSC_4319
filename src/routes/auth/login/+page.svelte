@@ -114,6 +114,7 @@
     }
     .OAuth {
         justify-self: center;
+        display: none;
     }
     h2 {
         text-align: center;
