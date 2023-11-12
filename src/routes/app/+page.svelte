@@ -13,6 +13,7 @@
     <a href="/app/symptoms"><button class="btn-secondary">Symptoms</button></a>
 </div>
 <div id="graph">
+    <!--TODO Implement graph component-->
     <img
         src="https://png.pngtree.com/element_our/20200702/ourmid/pngtree-ppt-data-line-chart-illustration-image_2296398.jpg"
         alt="a graph"

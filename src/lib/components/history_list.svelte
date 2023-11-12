@@ -2,6 +2,7 @@
     export let col_name = "Value";
 </script>
 
+<!-- TODO export new variable `data` which can then be processed to show historical data (Date column and whatever else is needed in the other column) -->
 <div class="table-scroll">
     <table>
         <tr>
@@ -37,8 +38,8 @@
         border-collapse: collapse;
     }
     td {
-        border-bottom: 0.25em solid var(--color-surface-50);
-        padding: 0.5em;
+        border-bottom: 0.5em solid var(--color-surface-50);
+        padding: 0.75em;
     }
 
     .hours {

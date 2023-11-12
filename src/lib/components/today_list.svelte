@@ -1,11 +1,12 @@
 <script>
     import IconAdd from "~icons/mdi/plus-circle-outline";
+    export let page;
 </script>
 
 <div class="box">
     <span>-</span>
 </div>
-<a class="icon-add" href="/app">
+<a class="icon-add" href="/app/log/{page}">
     <IconAdd />
 </a>
 
