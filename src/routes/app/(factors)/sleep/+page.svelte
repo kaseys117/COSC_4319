@@ -5,5 +5,6 @@
     let sleep_data = data.data;
 </script>
 
-<Today page="sleep" />
+<!-- TODO Pass the sleep data for today into `value` -->
+<Today page="sleep" value="-" />
 <HistoryList col_name="Hours Slept" data={sleep_data} />
