@@ -1,6 +1,5 @@
 <script>
     export let data;
-    console.log(data);
     const { nickname } = data.session.user.user_metadata; // Replace with actual user name
 </script>
 
