@@ -12,3 +12,10 @@ export function duration(start, end) {
     end = " "5:30"
     return 9.5 */
 }
+
+export function formatDate(timestamp) {
+        const date = new Date(timestamp);
+        const month = date.toLocaleString("default", { month: "short" });
+        const day = date.getDate();
+        return `${month} ${day}`;
+    };
