@@ -1,7 +1,7 @@
 <script>
     import { duration } from "$lib/utils.js";
     export let col_name = "Value";
-    export let data;
+    export let data = [];
 </script>
 
 <div class="table-scroll">

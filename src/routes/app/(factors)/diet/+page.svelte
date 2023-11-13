@@ -1,7 +1,7 @@
 <script>
-    import List from "$lib/components/history_list.svelte";
+    import HistoryList from "$lib/components/history_list.svelte";
     import Today from "$lib/components/today_list.svelte";
 </script>
 
-<Today />
-<List col_name="Meals Ate" />
+<Today page="diet" />
+<HistoryList col_name="Meals Ate" />

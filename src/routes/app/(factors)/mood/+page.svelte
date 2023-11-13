@@ -3,5 +3,5 @@
     import Today from "$lib/components/today_list.svelte";
 </script>
 
-<Today />
+<Today page="mood" />
 <List col_name="Mood" />
