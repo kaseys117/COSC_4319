@@ -1,7 +1,9 @@
 <script>
-    import List from "$lib/components/history_list.svelte";
+    import HistoryList from "$lib/components/history_list.svelte";
     import Today from "$lib/components/today_list.svelte";
+    export let data;
+    let sleep_data = data.data;
 </script>
 
 <Today page="sleep" />
-<List col_name="Hours Slept" />
+<HistoryList col_name="Hours Slept" data={sleep_data} />

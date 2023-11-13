@@ -1,8 +1,23 @@
 <script>
     export let col_name = "Value";
+    export let data;
+
+    function duration(start, end) {
+        /* TODO Given two strings, start and end, in 24-hour format "HH:MM",
+        calculate and return the hours in between.
+
+        test 1:
+        start = "22:00"
+        end = "07:00:
+        return 9
+
+        test 2:
+        start = "20:00"
+        end = " "5:30"
+        return 9.5 */
+    }
 </script>
 
-<!-- TODO export new variable `data` which can then be processed to show historical data (Date column and whatever else is needed in the other column) -->
 <div class="table-scroll">
     <table>
         <tr>
@@ -10,17 +25,10 @@
             <th class="hours">{col_name}</th>
         </tr>
         <tbody>
-            {#each Array(20) as _, i}
+            {#each data as row}
                 <tr>
-                    <td class="date"
-                        >{new Date(
-                            Date.now() + i * 24 * 60 * 60 * 1000
-                        ).toLocaleDateString("en-US", {
-                            month: "short",
-                            day: "numeric",
-                        })}</td
-                    >
-                    <td class="hours">{(Math.random() * 10).toFixed(2)}</td>
+                    <td class="date">{row.date}</td>
+                    <td class="hours">{duration(row.start, row.end)}</td>
                 </tr>
             {/each}
         </tbody>

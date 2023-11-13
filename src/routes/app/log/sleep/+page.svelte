@@ -1,14 +1,17 @@
 <script>
+    import TodayDate from "$lib/components/date.svelte";
+    import { enhance } from "$app/forms";
     export let data;
     const uid = data.session.user.id;
-    import Date from "$lib/components/date.svelte";
-    import { enhance } from "$app/forms";
+
+    let today = new Date().toISOString().split("T")[0];
 </script>
 
 <h1>How long did you sleep?</h1>
-<Date />
+<TodayDate />
 
 <form method="POST" use:enhance>
+    <input type="hidden" name="date" value={today} required />
     <input type="hidden" name="uid" value={uid} required />
     <label class="bedtime">
         Bedtime:
