@@ -49,9 +49,7 @@
                 />
                 <h2>Welcome to WellMo</h2>
                 <p>
-                    your personal wellness companion. Achieve your health and
-                    fitness goals with our intuitive tracking features,
-                    personalized recommendations.
+                    Your personal wellness companion. Achieve your health and wellness goals by keeping track of your everyday life.
                 </p>
             </div>
         </div>
@@ -61,8 +59,8 @@
                 <img src={undraw_park} alt="A man walking a dog in the park" />
                 <h2>Log your day</h2>
                 <p>
-                    Keep track of how you feel through out the day, including
-                    your diet, mood and sleep.
+                    Keep track of how you feel throughout the day, including
+                    your sleep, diet, mood, and symptoms.
                 </p>
             </div>
         </div>
@@ -72,8 +70,7 @@
                 <img src={undraw_charts} alt="A person looking at a chart" />
                 <h2>View your patterns</h2>
                 <p>
-                    Over time, you'll be able to identify patterns and the
-                    things that affect your health.
+                    You can show your doctor your logs so you can both get a better understanding of what's going on.
                 </p>
             </div>
         </div>
