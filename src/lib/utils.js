@@ -1,16 +1,27 @@
 export function duration(start, end) {
     /* TODO Given two strings, start and end, in 24-hour format "HH:MM",
-    calculate and return the hours in between.
+    calculate and return the hours in between.*/
 
-    test 1:
-    start = "22:00"
-    end = "07:00:
-    return 9
+    //Make start calculatable
+    const [startHourStr, startMinStr] = start.split(':');
+    const startHour = parseInt(startHourStr, 10);
+    const startMin = parseInt(startMinStr,10);
 
-    test 2:
-    start = "20:00"
-    end = " "5:30"
-    return 9.5 */
+    //Make end calculatable
+    const [endHourStr, endMinStr] = end.split(':');
+    const endHour = parseInt(endHourStr, 10);
+    const endMin = parseInt(endMinStr,10);
+    //calc time passed
+    let startTime = startHour+(startMin/60);
+    let endTime  = endHour+(endMin/60);
+
+    //check for day passing
+    if(endTime < startTime){
+        endTime += 24;
+    }
+
+    const timePassed = endTime - startTime;
+    return Math.round((timePassed + Number.EPSILON) * 10) / 10;
 }
 
 export function formatDate(timestamp) {
