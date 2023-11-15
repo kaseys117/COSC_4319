@@ -8,10 +8,19 @@
 		"preview": "vite preview"
 	},
 	"devDependencies": {
+		"@iconify-json/mdi": "^1.1.55",
+		"@supabase/auth-helpers-sveltekit": "^0.10.3",
+		"@supabase/supabase-js": "^2.38.0",
 		"@sveltejs/adapter-auto": "^2.0.0",
 		"@sveltejs/kit": "^1.20.4",
 		"svelte": "^4.0.5",
+		"unplugin-icons": "^0.17.3",
 		"vite": "^4.4.2"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"@sveltejs/adapter-vercel": "^3.0.3",
+		"z": "^1.0.9",
+		"zod-form-data": "^2.0.2"
+	}
 }

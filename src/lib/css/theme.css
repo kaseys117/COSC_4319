@@ -1,0 +1,171 @@
+:root {
+    /* =~= Theme Properties =~= */
+    --theme-font-family-base: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    --theme-font-family-heading: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    --theme-font-color-base: #000;
+    --theme-font-color-dark: #FFF;
+    --theme-rounded-base: 6px;
+    --theme-rounded-container: 12px;
+    --theme-border-base: 1px;
+    /* =~= Theme On-X Colors =~= */
+    --on-primary: #FFF;
+    --on-secondary: #FFF;
+    --on-tertiary: #000;
+    --on-success: #000;
+    --on-warning: #000;
+    --on-error: #000;
+    --on-surface: #fff;
+    /* =~= Theme Colors  =~= */
+    /* primary | #26735D */
+    --color-primary-50: #deeae7;
+    --color-primary-100: #d4e3df;
+    --color-primary-200: #c9dcd7;
+    --color-primary-300: #a8c7be;
+    --color-primary-400: #679d8e;
+    --color-primary-500: #26735D;
+    --color-primary-600: #226854;
+    --color-primary-700: #1d5646;
+    --color-primary-800: #174538;
+    --color-primary-900: #13382e;
+    /* secondary | #436B8E */
+    --color-secondary-50: #e3e9ee;
+    --color-secondary-100: #d9e1e8;
+    --color-secondary-200: #d0dae3;
+    --color-secondary-300: #b4c4d2;
+    --color-secondary-400: #7b97b0;
+    --color-secondary-500: #436B8E;
+    --color-secondary-600: #3c6080;
+    --color-secondary-700: #32506b;
+    --color-secondary-800: #284055;
+    --color-secondary-900: #213446;
+    /* tertiary | #C1D6E7 */
+    --color-tertiary-50: #f6f9fb;
+    --color-tertiary-100: #f3f7fa;
+    --color-tertiary-200: #f0f5f9;
+    --color-tertiary-300: #e6eff5;
+    --color-tertiary-400: #d4e2ee;
+    --color-tertiary-500: #C1D6E7;
+    --color-tertiary-600: #aec1d0;
+    --color-tertiary-700: #91a1ad;
+    --color-tertiary-800: #74808b;
+    --color-tertiary-900: #5f6971;
+    /* success | #5CB85C */
+    --color-success-50: #e7f4e7;
+    --color-success-100: #def1de;
+    --color-success-200: #d6edd6;
+    --color-success-300: #bee3be;
+    --color-success-400: #8dcd8d;
+    --color-success-500: #5CB85C;
+    --color-success-600: #53a653;
+    --color-success-700: #458a45;
+    --color-success-800: #376e37;
+    --color-success-900: #2d5a2d;
+    /* warning | #F0AD4E */
+    --color-warning-50: #fdf3e4;
+    --color-warning-100: #fcefdc;
+    --color-warning-200: #fbebd3;
+    --color-warning-300: #f9deb8;
+    --color-warning-400: #f5c683;
+    --color-warning-500: #F0AD4E;
+    --color-warning-600: #d89c46;
+    --color-warning-700: #b4823b;
+    --color-warning-800: #90682f;
+    --color-warning-900: #765526;
+    /* error | #EF5950 */
+    --color-error-50: #fde6e5;
+    --color-error-100: #fcdedc;
+    --color-error-200: #fbd6d3;
+    --color-error-300: #f9bdb9;
+    --color-error-400: #f48b85;
+    --color-error-500: #EF5950;
+    --color-error-600: #d75048;
+    --color-error-700: #b3433c;
+    --color-error-800: #8f3530;
+    --color-error-900: #752c27;
+    /* surface | #372673 */
+    --color-surface-50: #e1deea;
+    --color-surface-100: #d7d4e3;
+    --color-surface-200: #cdc9dc;
+    --color-surface-300: #afa8c7;
+    --color-surface-400: #73679d;
+    --color-surface-500: #372673;
+    --color-surface-600: #322268;
+    --color-surface-700: #291d56;
+    --color-surface-800: #211745;
+    --color-surface-900: #1b1338;
+
+    font-family: var(--theme-font-family-base);
+}
+
+button {
+    padding: 1em 2em;
+    height: 3.5em;
+    font-size: 1em;
+    border: none;
+    border-radius: var(--theme-rounded-base);
+    cursor: pointer;
+    margin: auto;
+    background-color: var(--color-surface-200);
+    color: var(--theme-font-color-base);
+}
+
+body {
+    background-color: var(--color-surface-50);
+}
+
+.btn-primary {
+    background-color: var(--color-primary-500);
+    color: var(--on-primary);
+}
+
+.btn-secondary {
+    padding: 1em 2em;
+    height: 3.5em;
+    font-size: 1em;
+    border: none;
+    border-radius: var(--theme-rounded-base);
+    cursor: pointer;
+    margin: auto;
+    background-color: var(--color-secondary-500);
+    color: var(--on-secondary);
+}
+
+.btn-tertiary {
+    background-color: var(--color-tertiary-500);
+    color: var(--on-tertiary);
+}
+
+.error {
+    background-color: var(--color-error-500);
+    color: var(--on-error);
+}
+
+.warning {
+    background-color: var(--color-warning-500);
+    color: var(--on-warning);
+}
+
+.success {
+    background-color: var(--color-success-500);
+    color: var(--on-success);
+}
+
+.border {
+    border: var(--theme-border-base) solid var(--color-surface-200);
+    border-radius: var(--theme-rounded-container);
+}
+
+.input-field {
+    padding: 1em 0.5em;
+    height: 3.5em;
+    border: var(--theme-border-base) solid var(--color-surface-400);
+    border-radius: var(--theme-rounded-base);
+    color: var(--theme-font-color-base);
+    background-color: var(--color-surface-100);
+}
+
+.input-field:focus {
+    border: var(--theme-border-base) solid var(--color-primary-500);
+    background-color: var(--color-surface-50);
+    outline: none;
+}
