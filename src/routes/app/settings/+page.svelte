@@ -1,6 +1,7 @@
 <script>
     import IconBack from "~icons/mdi/chevron-left";
     import { goto } from "$app/navigation";
+    import { enhance } from "$app/forms";
     export let data;
 
     let { supabase } = data;
@@ -14,23 +15,33 @@
             goto("/");
         }
     };
+    const user_data = data.session.user;
 
-    const uid = data.session.user.id;
+    let original_name = user_data.user_metadata.nickname;
+    let email = user_data.email;
 
-    let name = "John";
-    let email = "sample@mail.com";
+    let name = original_name;
+    $: disabled = name === original_name;
 </script>
 
 <a class="icon border" href="/app"><IconBack /></a>
-<form>
+<form
+    method="POST"
+    use:enhance={() => {
+        return async ({ update }) => {
+            update({ reset: false });
+        };
+    }}
+>
     <fieldset>
         <legend>Account</legend>
-        <input type="hidden" name="uid" value={uid} />
-        <input type="text" name="name" value={name} />
+        <input type="text" name="name" bind:value={name} required />
         <input type="text" value={email} disabled />
+        <button type="submit" class="btn-secondary" {disabled}>Apply</button>
     </fieldset>
 </form>
 <button class="error" on:click={handleSignOut}>Sign out</button>
+```
 
 <style>
     .icon {
@@ -48,5 +59,11 @@
     fieldset {
         border: 0;
         box-shadow: none;
+    }
+    button:disabled,
+    button[disabled] {
+        background-color: #cccccc;
+        color: #666666;
+        font-weight: 500;
     }
 </style>

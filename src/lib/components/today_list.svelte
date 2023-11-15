@@ -6,7 +6,6 @@
     let value = "-";
 
     if (data) {
-        console.log(data);
         switch (page) {
             case "sleep":
                 let { start, end } = data;
