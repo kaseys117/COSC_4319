@@ -2,11 +2,23 @@
     import IconAdd from "~icons/mdi/plus-circle-outline";
     import { duration } from "$lib/utils.js";
     export let page;
-    export let value = "-";
+    export let data;
+    let value = "-";
 
-    if (value.hasOwnProperty("start") && value.hasOwnProperty("end")) {
-        let { start, end } = value;
-        value = duration(start, end);
+    if (data) {
+        console.log(data);
+        switch (page) {
+            case "sleep":
+                let { start, end } = data;
+                value = duration(start, end);
+                break;
+            case "mood":
+                value = data.mood;
+                break;
+            default:
+                value = value.data;
+                break;
+        }
     }
 </script>
 

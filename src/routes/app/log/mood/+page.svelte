@@ -16,7 +16,7 @@
 
 <h1>How are you feeling?</h1>
 
-<Today />
+<Today {data} />
 
 <form method="POST" use:enhance>
     <input type="hidden" name="uid" value={uid} required />
