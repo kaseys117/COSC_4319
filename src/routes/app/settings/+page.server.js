@@ -1,8 +1,6 @@
-import { redirect } from "@sveltejs/kit";
-
 export const actions = {
     default: async ({ request, locals: { supabase } }) => {
-        const formData = await request.formData(); // get mood form data when user hits submit
+        const formData = await request.formData();
         const nickname = formData.get("name");
 
         const { error } = await supabase.auth.updateUser({
@@ -10,12 +8,11 @@ export const actions = {
                 nickname
             }
         })
-            // .match({ id: user_id });
 
         if (error) {
             console.log(error);
         } else {
-            throw redirect(303, "/app/settings");
+            await supabase.auth.refreshSession()
         }
     },
 };
