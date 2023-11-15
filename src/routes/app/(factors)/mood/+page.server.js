@@ -1,3 +1,5 @@
+import { repackage_data } from '$lib/utils.js';
+
 export async function load({ locals: { supabase }}) {
     // Gets user's mood data
     const { data, error } = await supabase.from("Mood").select();
@@ -5,6 +7,6 @@ export async function load({ locals: { supabase }}) {
         console.log(error);
     }
     return {
-        data: data ?? []
+        data: data ? repackage_data(data) : []
     };
 }
