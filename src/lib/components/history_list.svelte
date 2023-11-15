@@ -6,17 +6,19 @@
 
     let page_name = $page.url.pathname.split("/").pop();
 
-
     function process_row(row) {
         switch (page_name) {
             case "sleep":
-                return duration(row.start, row.end)
+                return duration(row.start, row.end);
             case "mood":
-                return row.mood
+                return row.mood;
             default:
-                console.log(row)
+                console.log(row);
         }
     }
+
+    // Sort the data array in descending order by date
+    data = data.sort((a, b) => new Date(b.date) - new Date(a.date));
 </script>
 
 <div class="table-scroll">

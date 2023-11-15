@@ -45,6 +45,7 @@
     form {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
+        gap: 1em;
     }
     form > label,
     textarea {
