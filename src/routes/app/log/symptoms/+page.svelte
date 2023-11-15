@@ -11,29 +11,26 @@
 
 <form method="POST" use:enhance>
     <input type="hidden" name="uid" value={uid} required />
-    <label>
-        What kind of pain?
-        <input type="text" name="kind" />
-    </label>
+    
     <label>
         Where was it located?
-        <input type="text" name="location" />
+        <input class='border' type="text" name="location" />
     </label>
     <label>
         How did it feel?
-        <input type="text" name="feel" />
+        <input class='border' type="text" name="feel" />
     </label>
     <label>
         How long did it last?
-        <input type="text" name="duration" />
+        <input class='border' type="text" name="duration" />
     </label>
     <label>
         What made it worse?
-        <input type="text" name="aggravate" />
+        <input class='border' type="text" name="aggravate" />
     </label>
     <label>
         What made it better?
-        <input type="text" name="relieve" />
+        <input class='border' type="text" name="relieve" />
     </label>
     <textarea class="border" name="notes" rows="5" placeholder="Notes" />
     <a href="/app/symptoms" class="btn-secondary last-row">Cancel</a>
@@ -42,6 +39,14 @@
 
 <style>
     /* TODO fix styling (refer to Figma doc) */
+    h1 {
+        font-weight: 400;
+        font-size: 1.5em;
+        margin-top: 1em;
+    }
+    label {
+        font-size: 1.2em;
+    }
     form {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
@@ -64,5 +69,9 @@
     .submit {
         grid-column: 3;
         justify-self: end;
+    }
+    input{
+        width: 100%;
+        height: 2em;
     }
 </style>
