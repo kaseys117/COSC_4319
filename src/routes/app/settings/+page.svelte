@@ -60,6 +60,21 @@
         border: 0;
         box-shadow: none;
     }
+    legend{
+        font-size: 2em;
+    }
+    input{
+        font-size: 1.4em;
+        line-height: 2;
+        width: 100%;
+        
+    }
+    button{
+        width: 100%;
+        height: 3em;
+        font-size: 1.5em;
+    }
+   
     button:disabled,
     button[disabled] {
         background-color: #cccccc;
