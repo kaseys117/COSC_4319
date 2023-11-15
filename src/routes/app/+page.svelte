@@ -1,15 +1,17 @@
 <script>
+    import IconSettings from "~icons/mdi/cog";
     export let data;
     const { nickname } = data.session.user.user_metadata; // Replace with actual user name
 </script>
 
+<a href="/app/settings" class="icon"><IconSettings /></a>
 <h1>Welcome, {nickname}</h1>
 <div class="menu">
     <p>Log your</p>
-    <a href="/app/sleep"><button class="btn-secondary">Sleep</button></a>
-    <a href="/app/diet"><button class="btn-secondary">Diet</button></a>
-    <a href="/app/mood"><button class="btn-secondary">Mood</button></a>
-    <a href="/app/symptoms"><button class="btn-secondary">Symptoms</button></a>
+    <a href="/app/sleep" class="btn-secondary">Sleep</a>
+    <a href="/app/diet" class="btn-secondary">Diet</a>
+    <a href="/app/mood" class="btn-secondary">Mood</a>
+    <a href="/app/symptoms" class="btn-secondary">Symptoms</a>
 </div>
 <div id="graph">
     <!--TODO Implement graph component-->
@@ -20,6 +22,9 @@
 </div>
 
 <style>
+    h1 {
+        margin-top: 0;
+    }
     .menu {
         display: flex;
         flex-direction: column;
@@ -29,8 +34,18 @@
         width: 100%;
     }
     .menu > p,
-    a,
-    button {
+    a {
         width: 100%;
+        text-align: center;
+        text-decoration: none;
+    }
+
+    .icon {
+        font-size: 2em;
+        line-height: 0;
+        width: fit-content;
+        align-self: flex-end;
+        color: inherit;
+        text-decoration: none;
     }
 </style>
