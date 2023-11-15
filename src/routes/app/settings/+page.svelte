@@ -70,7 +70,6 @@
         
     }
     button{
-        width: 100%;
         height: 3em;
         font-size: 1.5em;
     }
