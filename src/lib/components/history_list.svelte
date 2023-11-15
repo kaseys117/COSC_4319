@@ -1,15 +1,20 @@
 <script>
+    import { page } from "$app/stores";
     import { duration, formatDate } from "$lib/utils.js";
     export let col_name = "Value";
     export let data = [];
 
+    let page_name = $page.url.pathname.split("/").pop();
+
+
     function process_row(row) {
-        if (col_name == "Hours") {
-            // Sleep Data
-            return duration(row.start, row.end);
-        } else if (col_name == "Mood") {
-            // Mood Data
-            return row.mood;
+        switch (page_name) {
+            case "sleep":
+                return duration(row.start, row.end)
+            case "mood":
+                return row.mood
+            default:
+                console.log(row)
         }
     }
 </script>
