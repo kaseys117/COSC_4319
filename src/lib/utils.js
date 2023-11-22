@@ -72,11 +72,22 @@ export function BMR( weight,height, age, Female){
     */
     if (!Female){
         //calculation for male BMR
-        BaseMetabolicRate = 13.397*weight + 4.799*height - 5.677*age + 88.362
-    }else (
+        BaseMetabolicRate = 13.397*weight + 4.799*height - 5.677*age + 88.362;
+    }else {
         //calculation for female BMR
-        BaseMetabolicRate = 9.247*weight + 3.098*height - 4.330*age + 447.593
-    )
-        return BaseMetabolicRate
+        BaseMetabolicRate = 9.247*weight + 3.098*height - 4.330*age + 447.593;
+    }
+        return BaseMetabolicRate;
 }
 
+export function impToMetHeight(feet, inchs){
+    //calcuation of Height in cm from feet and inchs 
+    cm = feet*30.48 + inchs*254;
+    return cm;
+}
+
+export function impToMetWeight(lb){
+    //calculation from lb to kg
+    kg = lb*.454
+    return kg;
+}
