@@ -1,7 +1,6 @@
 export function duration(start, end) {
     /* TODO Given two strings, start and end, in 24-hour format "HH:MM",
     calculate and return the hours in between.*/
-    // push test
     //Make start calculatable
     const [startHourStr, startMinStr] = start.split(":");
     const startHour = parseInt(startHourStr, 10);
@@ -63,3 +62,21 @@ export function repackage_data(data) {
     };
     return repackaged_data;
 }
+
+export function BMR( weight,height, age, Female){
+    /*Calculation for base metabloic Rate, 
+    weight in kg,
+    height in m,
+    age round number,
+    Female bolean of gender
+    */
+    if (!Female){
+        //calculation for male BMR
+        BaseMetabolicRate = 13.397*weight + 4.799*height - 5.677*age + 88.362
+    }else (
+        //calculation for female BMR
+        BaseMetabolicRate = 9.247*weight + 3.098*height - 4.330*age + 447.593
+    )
+        return BaseMetabolicRate
+}
+
