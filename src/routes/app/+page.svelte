@@ -8,10 +8,10 @@
 <h1>Welcome, {nickname}</h1>
 <div class="menu">
     <p>Log your</p>
-    <a href="/app/sleep" class="btn-secondary">Sleep</a>
-    <a href="/app/diet" class="btn-secondary">Diet</a>
-    <a href="/app/mood" class="btn-secondary">Mood</a>
-    <a href="/app/symptoms" class="btn-secondary">Symptoms</a>
+    <a href="/app/sleep" class="btn btn-secondary">Sleep</a>
+    <a href="/app/diet" class="btn btn-secondary">Diet</a>
+    <a href="/app/mood" class="btn btn-secondary">Mood</a>
+    <a href="/app/symptoms" class="btn btn-secondary">Symptoms</a>
 </div>
 <div id="graph">
     <!--TODO Implement graph component-->
