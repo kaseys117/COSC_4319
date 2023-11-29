@@ -1,18 +1,27 @@
 <script>
-    import DateToday from "$lib/components/date.svelte";
     import { enhance } from "$app/forms";
 
     export let data;
     const uid = data.session.user.id;
+    let today = new Date().toJSON().slice(0, 10);
 </script>
 
 <h1>What did you feel?</h1>
 <!-- TODO: make date editable -->
-<DateToday />
 
 <form method="POST" use:enhance>
     <input type="hidden" name="uid" value={uid} required />
-
+    <label class="date-label">
+        Date:
+        <input
+            type="date"
+            value={today}
+            max={today}
+            name="date"
+            class="border"
+            required
+        />
+    </label>
     <label>
         Where was it located?
         <input
@@ -90,8 +99,8 @@
         <input class="input-field" type="text" name="relieve" />
     </label>
     <textarea class="border" name="notes" rows="5" placeholder="Notes" />
-    <a href="/app/symptoms" class="btn-secondary last-row">Cancel</a>
-    <button type="submit" class="btn-secondary last-row submit">Submit</button>
+    <a href="/app/symptoms" class="btn btn-secondary">Cancel</a>
+    <button type="submit" class="btn-secondary">Submit</button>
 </form>
 
 <style>
@@ -106,29 +115,26 @@
     }
     form {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
         gap: 1em;
     }
     form > label,
     textarea {
-        grid-column: span 3;
+        grid-column: span 2;
     }
     textarea {
         padding: 1em;
     }
-    a {
-        text-decoration: none;
-    }
-    .last-row {
-        grid-column: 1;
-        grid-row-end: 0;
-    }
-    .submit {
-        grid-column: 3;
-        justify-self: end;
-    }
     input {
         width: 100%;
         height: 2em;
+    }
+    a.btn,
+    button {
+        height: inherit;
+        justify-self: center;
+    }
+    input[type="date"] {
+        padding: 0.5em;
     }
 </style>
