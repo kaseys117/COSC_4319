@@ -6,11 +6,13 @@ export const actions = {
         const mood = formData.get('mood')
         const notes = formData.get('notes')
         const user_id = formData.get('uid')
+        const date = formData.get('date')
 
         const { error } = await supabase.from('Mood').insert({
             user_id,
             mood,
             notes,
+            date
         });
 
         if (error) {
