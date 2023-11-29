@@ -41,6 +41,8 @@
         margin: 2em 0;
     }
     label {
+        grid-column: span 2;
+
         font-size: 1.5em;
         align-self: stretch;
     }
@@ -55,15 +57,9 @@
         margin: 1.5em 0;
         width: 100%;
     }
-    .date-label {
-        grid-column: span 2;
-    }
     a.btn {
         text-decoration: none;
-        justify-self: start;
-    }
-    button {
-        justify-self: end;
+        justify-self: center;
     }
     a.btn,
     button {
