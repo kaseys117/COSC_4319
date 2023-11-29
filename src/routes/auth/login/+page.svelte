@@ -71,7 +71,7 @@
 </div>
 
 {#if showToast}
-    <div class="toast border row-1" transition:fade>
+    <div class="toast border" transition:fade>
         <p>Confirm your email before loging in.</p>
         <div class="progress" style="width: {progress}%" />
     </div>
