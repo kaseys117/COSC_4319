@@ -1,83 +1,95 @@
 <script>
     import { enhance } from "$app/forms";
+    import Add from "~icons/mdi/plus-circle-outline";
     export let data;
+
+    let food_macros = data?.food_macros ?? [];
+    console.log(data);
 </script>
 
-<p>log diet</p>
+<h1>Diet</h1>
 <!-- Use this API https://fdc.nal.usda.gov/api-guide.html#bkmk-6 -->
 
-<!-- <div class="table-scroll">
+<div class="table-scroll">
     <table>
-        <thead>
-            <tr>
-                <th>Food</th>
-                <th>Calories</th>
-                <th>Carbs</th>
-                <th>Fat</th>
-                <th>Protein</th>
-            </tr>
-        </thead>
         <tbody>
-            {#each data as item}
+            {#await data}
                 <tr>
-                    <td>{item.name}</td>
-                    <td>{item.calories}</td>
-                    <td>{item.carbs}</td>
-                    <td>{item.fat}</td>
-                    <td>{item.protein}</td>
+                    <td> Loading... </td>
                 </tr>
-            {/each}
+            {:then data}
+                {#each data.food_macros as food}
+                    <tr>
+                        <td>
+                            <div>
+                                <b>{food.food}</b>
+                                <p>
+                                    {food.calories}cal {food.carbs}C {food.fat}F {food.protein}P
+                                </p>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="icon">
+                                <Add />
+                            </div>
+                        </td>
+                    </tr>
+                {/each}
+            {/await}
         </tbody>
         <tfoot>
             <tr>
-                <td colspan="5">
-                    <input
-                        name="query"
-                        type="text"
-                        placeholder="food item (eg. pepperoni pizza)"
-                        form="search-form"
-                        required
-                    />
+                <td>
+                    <form method="post" id="search-form" use:enhance>
+                        <input
+                            name="query"
+                            type="text"
+                            placeholder="food item (eg. pepperoni pizza)"
+                            form="search-form"
+                            required
+                        />
+                    </form>
                 </td>
             </tr>
         </tfoot>
     </table>
-</div> -->
+</div>
 
-<form method="post" id="search-form" use:enhance>
-    <input
-        name="query"
-        type="text"
-        placeholder="food item (eg. pepperoni pizza)"
-        required
-    />
-    <button type="submit" class="btn-primary">Search</button>
-</form>
-
-{#if data}
-    <p>{JSON.stringify(data.foodSearchCriteria)}</p>
-    <br />
-    <p>{JSON.stringify(data.foods)}</p>
-{/if}
+<!-- {#if data}
+    <p>{JSON.stringify(data.food_macros)}</p>
+{/if} -->
 
 <style>
-    /* .table-scroll {
+    .table-scroll {
         overflow-y: auto;
-        width: 100%;
         height: auto;
-    }
-    .table-scroll > table {
         width: 100%;
-        border-collapse: collapse;
     }
     tfoot {
         position: sticky;
         bottom: 0;
         background-color: var(--color-surface-50);
         width: 100%;
-    } */
+    }
     p {
         overflow-wrap: break-word;
+        width: 100%;
+    }
+    .icon {
+        font-size: 2em;
+        line-height: 0;
+    }
+    tr {
+        border-bottom: 1px solid var(--color-surface-200);
+    }
+    td {
+        padding: 1em 0;
+    }
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    input {
         width: 100%;
     }
 </style>

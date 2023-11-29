@@ -42,13 +42,11 @@ export function get_today_data(data) {
     return data.filter((d) => d.date === today)[0];
 }
 
-
 export function filter_today(data) {
     // Remove the data that matches today's date (data.date === today)
     const today = new Date().toJSON().slice(0, 10);
     return data.filter((d) => d.date !== today);
 }
-
 
 export function repackage_data(data) {
     // Puts the data in json with the keys `today` and `history`
@@ -61,64 +59,106 @@ export function repackage_data(data) {
     return repackaged_data;
 }
 
-export function BMR( weight,height, age, Female){
+export function BMR(weight, height, age, Female) {
     /*Calculation for base metabloic Rate,
     weight in kg,
     height in cm,
     age round number,
     Female bolean of gender
     */
-    if (!Female){
+    if (!Female) {
         //calculation for male BMR
-        BaseMetabolicRate = 13.397*weight + 4.799*height - 5.677*age + 88.362;
-    }else {
+        BaseMetabolicRate =
+            13.397 * weight + 4.799 * height - 5.677 * age + 88.362;
+    } else {
         //calculation for female BMR
-        BaseMetabolicRate = 9.247*weight + 3.098*height - 4.330*age + 447.593;
+        BaseMetabolicRate =
+            9.247 * weight + 3.098 * height - 4.33 * age + 447.593;
     }
-        return BaseMetabolicRate;
+    return BaseMetabolicRate;
 }
 
-export function impToMetHeight(feet, inchs){
+export function impToMetHeight(feet, inchs) {
     //calcuation of Height in cm from feet and inchs
-    cm = feet*30.48 + inchs*254;
+    cm = feet * 30.48 + inchs * 254;
     return cm;
 }
 
-export function impToMetWeight(lb){
+export function impToMetWeight(lb) {
     //calculation from lb to kg
-    kg = lb*.454
+    kg = lb * 0.454;
     return kg;
 }
 
 export const activity_level_enum = {
-    SEDENTARY: 'sedentary',
-    LIGHT: 'light',
-    MODERATE: 'moderate',
-    HIGH: 'HIGH',
-    INTENSE: 'intense'
-}
+    SEDENTARY: "sedentary",
+    LIGHT: "light",
+    MODERATE: "moderate",
+    HIGH: "HIGH",
+    INTENSE: "intense",
+};
 function getNutrient(nuts, id) {
     for (let nutrient of nuts) {
-        if (id.toLowerCase() === nutrient['nutrient']['name'].toLowerCase()) {
+        if (id.toLowerCase() === nutrient["nutrient"]["name"].toLowerCase()) {
             return nutrient;
         }
     }
- }
-export function pack(unpacked_data){
-    carbohydrates = getNutrient(unpacked_data, 'Sugers')
-    protien = getNutrient(unpacked_data,'protein')
-    energy = getnutrient(unpacked_data, 'Energy')
-    fat = getNutrient(unpacked_data,'Total lipid' )
-
+}
+export function pack(unpacked_data) {
+    carbohydrates = getNutrient(unpacked_data, "Sugers");
+    protien = getNutrient(unpacked_data, "protein");
+    energy = getnutrient(unpacked_data, "Energy");
+    fat = getNutrient(unpacked_data, "Total lipid");
 
     let packed_data = {
-        Name: unpacked_data['description'],
-        Carbs: carbohydrates['value'],
-        Protien: protien['value'],
-        Energy: energy['value'],
-        Fat: tranFat['vlaue'],
+        Name: unpacked_data["description"],
+        Carbs: carbohydrates["value"],
+        Protien: protien["value"],
+        Energy: energy["value"],
+        Fat: tranFat["vlaue"],
     };
 
-    return packed_data
+    return packed_data;
+}
 
+export function parse_food_data(food_data) {
+    // Extracts food name and macros for all foods in food_data
+    // Returns in format {food_macros: [{food: foodName, calories: calories, protein: protein, fat: fat, carbs: carbs}, ...]
+    if (!food_data.foods) {
+        return {food_macros: []};
+    }
+    let food_macros = [];
+    for (let jsonData of food_data.foods) {
+        const foodName = jsonData.description;
+
+        // Extracting calories
+        const caloriesInfo = jsonData.foodNutrients.find(
+            (nutrient) => nutrient.nutrientId === 1008
+        );
+        const calories = caloriesInfo ? caloriesInfo.value : null;
+
+        // Extracting macros
+        const proteinInfo = jsonData.foodNutrients.find(
+            (nutrient) => nutrient.nutrientId === 1003
+        );
+        const fatInfo = jsonData.foodNutrients.find(
+            (nutrient) => nutrient.nutrientId === 1004
+        );
+        const carbsInfo = jsonData.foodNutrients.find(
+            (nutrient) => nutrient.nutrientId === 1005
+        );
+
+        const protein = proteinInfo ? proteinInfo.value : null;
+        const fat = fatInfo ? fatInfo.value : null;
+        const carbs = carbsInfo ? carbsInfo.value : null;
+
+        food_macros.push({
+            food: foodName,
+            calories,
+            protein,
+            fat,
+            carbs,
+        });
+    }
+    return {food_macros};
 }
