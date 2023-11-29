@@ -119,6 +119,7 @@ button {
     margin: auto;
     background-color: var(--color-surface-200);
     color: var(--theme-font-color-base);
+    width: min-content;
 }
 
 body {
