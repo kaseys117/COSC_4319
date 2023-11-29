@@ -21,10 +21,9 @@ export const actions = {
             relieve,
             notes,
         };
-        // TODO create supabase table for symptoms and add Row Level Security policies
-        // The table should have two columns: user_id and symptom_data(json datatype)
         const { error } = await supabase.from('Symptoms').insert({
             user_id,
+            date,
             symptom_data
         });
 
