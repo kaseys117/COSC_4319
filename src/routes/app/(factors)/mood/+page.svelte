@@ -8,5 +8,5 @@
     let history_data = mood_data.history;
 </script>
 
-<Today page="mood" data={today_data} />
+<Today data={today_data} />
 <HistoryList col_name="Mood" data={history_data} />

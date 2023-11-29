@@ -3,5 +3,5 @@
     import Today from "$lib/components/today_list.svelte";
 </script>
 
-<Today page="diet" />
+<Today />
 <HistoryList col_name="Meals Ate" />

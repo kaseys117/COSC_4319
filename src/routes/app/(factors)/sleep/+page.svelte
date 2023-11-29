@@ -8,5 +8,5 @@
     let history_data = sleep_data.history;
 </script>
 
-<Today page="sleep" data={today_data} />
+<Today data={today_data} />
 <HistoryList col_name="Hours Slept" data={history_data} />
