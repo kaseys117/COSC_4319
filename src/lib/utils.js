@@ -1,3 +1,5 @@
+import { get } from "svelte/store";
+
 export function duration(start, end) {
     /* TODO Given two strings, start and end, in 24-hour format "HH:MM",
     calculate and return the hours in between.*/
@@ -98,4 +100,29 @@ export const activity_level_enum = {
     MODERATE: 'moderate',
     HIGH: 'HIGH',
     INTENSE: 'intense'
+}
+function getNutrient(nuts, id) {
+    for (let nutrient of nuts) {
+        if (id.toLowerCase() === nutrient['nutrient']['name'].toLowerCase()) {
+            return nutrient;
+        }
+    }
+ }
+export function pack(unpacked_data){
+    carbohydrates = getNutrient(unpacked_data, 'Sugers')
+    protien = getNutrient(unpacked_data,'protein')
+    energy = getnutrient(unpacked_data, 'Energy')
+    fat = getNutrient(unpacked_data,'Total lipid' )
+
+    
+    let packed_data = {
+        Name: unpacked_data['description'],
+        Carbs: carbohydrates['value'],
+        Protien: protien['value'],
+        Energy: energy['value'],
+        Fat: tranFat['vlaue'],
+    };
+
+    return packed_data
+
 }
