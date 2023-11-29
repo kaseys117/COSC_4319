@@ -12,6 +12,8 @@
                 return duration(row.start, row.end);
             case "mood":
                 return row.mood;
+            case "symptoms":
+                return row.symptom_data.location;
             default:
                 console.log(row);
         }

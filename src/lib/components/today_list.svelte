@@ -1,18 +1,23 @@
 <script>
     import IconAdd from "~icons/mdi/plus-circle-outline";
+    import { page } from "$app/stores";
     import { duration } from "$lib/utils.js";
-    export let page;
     export let data;
+
     let value = "-";
+    let page_name = $page.url.pathname.split("/").pop();
 
     if (data) {
-        switch (page) {
+        switch (page_name) {
             case "sleep":
                 let { start, end } = data;
                 value = duration(start, end);
                 break;
             case "mood":
                 value = data.mood;
+                break;
+            case "symptoms":
+                value = data.symptom_data.location;
                 break;
             default:
                 value = value.data;
@@ -24,7 +29,7 @@
 <div class="box">
     <span>{value}</span>
 </div>
-<a class="icon-add" href="/app/log/{page}">
+<a class="icon-add" href="/app/log/{page_name}">
     <IconAdd />
 </a>
 
