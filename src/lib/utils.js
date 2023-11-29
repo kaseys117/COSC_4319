@@ -157,7 +157,7 @@ export function parse_food_data(food_data) {
             calories,
             protein,
             fat,
-            carbs,
+            carbs
         });
     }
     return {food_macros};
