@@ -14,6 +14,8 @@
                 return row.mood;
             case "symptoms":
                 return row.symptom_data.location;
+            case "diet":
+                return row.food.calories;
             default:
                 console.log(row);
         }

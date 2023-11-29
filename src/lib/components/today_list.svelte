@@ -19,8 +19,11 @@
             case "symptoms":
                 value = data.symptom_data.location;
                 break;
+            case "diet":
+                value = data.food.calories;
+                break;
             default:
-                value = value.data;
+                console.log(data);
                 break;
         }
     }
