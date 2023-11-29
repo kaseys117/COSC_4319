@@ -66,7 +66,7 @@ export function repackage_data(data) {
 export function BMR( weight,height, age, Female){
     /*Calculation for base metabloic Rate, 
     weight in kg,
-    height in m,
+    height in cm,
     age round number,
     Female bolean of gender
     */
