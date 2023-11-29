@@ -1,5 +1,3 @@
-import { get } from "svelte/store";
-
 export function duration(start, end) {
     /* TODO Given two strings, start and end, in 24-hour format "HH:MM",
     calculate and return the hours in between.*/
@@ -40,17 +38,15 @@ export function yyyy_mm_dd(date) {
 
 export function get_today_data(data) {
     // Get the data that matches today's date (data.date === today)
-    const today = new Date();
-    today.setDate(today.getDate() + 1); // bug where the server data has date offset by one day in the future but the UI renders it as today so we have to use tomorrow's date
-    return data.filter((d) => d.date === yyyy_mm_dd(today))[0];
+    const today = new Date().toJSON().slice(0, 10);
+    return data.filter((d) => d.date === today)[0];
 }
 
 
 export function filter_today(data) {
     // Remove the data that matches today's date (data.date === today)
-    const today = new Date();
-    today.setDate(today.getDate() + 1); // bug where the server data has date offset by one day in the future but the UI renders it as today so we have to use tomorrow's date
-    return data.filter((d) => d.date !== yyyy_mm_dd(today));
+    const today = new Date().toJSON().slice(0, 10);
+    return data.filter((d) => d.date !== today);
 }
 
 
@@ -114,7 +110,7 @@ export function pack(unpacked_data){
     energy = getnutrient(unpacked_data, 'Energy')
     fat = getNutrient(unpacked_data,'Total lipid' )
 
-    
+
     let packed_data = {
         Name: unpacked_data['description'],
         Carbs: carbohydrates['value'],
