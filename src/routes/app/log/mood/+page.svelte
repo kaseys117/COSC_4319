@@ -7,7 +7,6 @@
     import Sick from "~icons/mdi/emoticon-sick-outline";
     import Stressed from "~icons/mdi/emoticon-dead-outline";
     import Confused from "~icons/mdi/emoticon-confused-outline";
-    import Today from "$lib/components/date.svelte";
     import { enhance } from "$app/forms";
 
     export let data;

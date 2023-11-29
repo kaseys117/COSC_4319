@@ -1,18 +1,21 @@
 <script>
     import { enhance } from "$app/forms";
     export let data;
+
     const uid = data.session.user.id;
+    let today = new Date().toJSON().slice(0, 10);
 </script>
 
 <h1>How long did you sleep?</h1>
 
 <form method="POST" use:enhance>
     <input type="hidden" name="uid" value={uid} required />
-    <label>
+    <label class="date-label">
         Date:
         <input
             type="date"
-            value={new Date().toJSON().slice(0, 10)}
+            value={today}
+            max={today}
             name="date"
             class="border"
             required
@@ -52,7 +55,7 @@
         margin: 1.5em 0;
         width: 100%;
     }
-    form > label {
+    .date-label {
         grid-column: span 2;
     }
     a.btn {
