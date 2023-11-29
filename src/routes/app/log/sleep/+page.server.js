@@ -6,11 +6,13 @@ export const actions = {
         // start and end are in 24 hour format
         const start = formData.get('bedtime')
         const end = formData.get('wakeup')
+        const date = formData.get('date')
         const user_id = formData.get('uid')
 
         const { error } = await supabase.from('Sleep').insert({
             start,
             end,
+            date,
             user_id
         });
 

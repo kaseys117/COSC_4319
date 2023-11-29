@@ -1,6 +1,4 @@
 export function duration(start, end) {
-    /* TODO Given two strings, start and end, in 24-hour format "HH:MM",
-    calculate and return the hours in between.*/
     //Make start calculatable
     const [startHourStr, startMinStr] = start.split(":");
     const startHour = parseInt(startHourStr, 10);
