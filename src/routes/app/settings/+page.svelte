@@ -3,6 +3,7 @@
     import { goto } from "$app/navigation";
     import { enhance } from "$app/forms";
     export let data;
+    let sampleModal;
 
     let { supabase } = data;
     $: ({ supabase } = data);
@@ -15,10 +16,9 @@
             goto("/");
         }
     };
-    const user_data = data.session.user;
 
-    let original_name = user_data.user_metadata.nickname;
-    let email = user_data.email;
+    const original_name = data.session.user.user_metadata.nickname;
+    let email = data.session.user.email;
 
     let name = original_name;
     $: disabled = name === original_name;
@@ -35,13 +35,34 @@
 >
     <fieldset>
         <legend>Account</legend>
-        <input type="text" name="name" bind:value={name} required />
+        <input
+            type="text"
+            name="name"
+            bind:value={data.session.user.user_metadata.nickname}
+            required
+        />
         <input type="text" value={email} disabled />
-        <button type="submit" class="btn-secondary" {disabled}>Apply</button>
     </fieldset>
+    <fieldset>
+        <legend>Change Password</legend>
+        <input
+            type="password"
+            name="password"
+            placeholder="new password"
+            autocomplete="new-password"
+            required
+        />
+    </fieldset>
+    <button type="submit" class="btn-secondary" {disabled}>Apply</button>
 </form>
+
+<!-- TODO: Change email, password, sex, dob, height, weight, activity level,  -->
+<button on:click={() => sampleModal.showModal()}>Open Modal</button>
+<dialog bind:this={sampleModal}>
+    <h1>Sample Modal</h1>
+    <button on:click={() => sampleModal.close()}>Close</button>
+</dialog>
 <button class="error" on:click={handleSignOut}>Sign out</button>
-```
 
 <style>
     .icon {
@@ -60,20 +81,19 @@
         border: 0;
         box-shadow: none;
     }
-    legend{
+    legend {
         font-size: 2em;
     }
-    input{
+    input {
         font-size: 1.4em;
         line-height: 2;
         width: 100%;
-        
     }
-    button{
+    button {
         height: 3em;
         font-size: 1.5em;
     }
-   
+
     button:disabled,
     button[disabled] {
         background-color: #cccccc;
