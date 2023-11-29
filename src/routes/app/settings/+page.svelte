@@ -46,6 +46,7 @@
     <fieldset>
         <legend>Change Password</legend>
         <input
+        class="input-field"
             type="password"
             name="password"
             placeholder="new password"
@@ -57,11 +58,11 @@
 </form>
 
 <!-- TODO: Change email, password, sex, dob, height, weight, activity level,  -->
-<button on:click={() => sampleModal.showModal()}>Open Modal</button>
+<!-- <button on:click={() => sampleModal.showModal()}>Open Modal</button>
 <dialog bind:this={sampleModal}>
     <h1>Sample Modal</h1>
     <button on:click={() => sampleModal.close()}>Close</button>
-</dialog>
+</dialog> -->
 <button class="error" on:click={handleSignOut}>Sign out</button>
 
 <style>
