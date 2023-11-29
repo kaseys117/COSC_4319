@@ -64,7 +64,7 @@ export function repackage_data(data) {
 }
 
 export function BMR( weight,height, age, Female){
-    /*Calculation for base metabloic Rate, 
+    /*Calculation for base metabloic Rate,
     weight in kg,
     height in m,
     age round number,
@@ -81,7 +81,7 @@ export function BMR( weight,height, age, Female){
 }
 
 export function impToMetHeight(feet, inchs){
-    //calcuation of Height in cm from feet and inchs 
+    //calcuation of Height in cm from feet and inchs
     cm = feet*30.48 + inchs*254;
     return cm;
 }
@@ -90,4 +90,12 @@ export function impToMetWeight(lb){
     //calculation from lb to kg
     kg = lb*.454
     return kg;
+}
+
+export const activity_level_enum = {
+    SEDENTARY: 'sedentary',
+    LIGHT: 'light',
+    MODERATE: 'moderate',
+    HIGH: 'HIGH',
+    INTENSE: 'intense'
 }

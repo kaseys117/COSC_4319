@@ -13,6 +13,7 @@ export const actions = {
     const height_ft = formData.get('height-ft') // get height from form data
     const height_in = formData.get('height-in') // get height from form data
     const height = `${height_ft}'${height_in}"` // combine height_ft and height_in into one string
+    const weight = formData.get('weight') // get weight(lbs) from form data
     const activity_level = formData.get('activity-level') // get activity level from form data
 
     // Check that activity level is valid
@@ -35,7 +36,8 @@ export const actions = {
           sex: sex,
           dob: dob,
           height: height,
-          activity_level: activity_level
+          activity_level: activity_level,
+          weight: weight
         }
       }
     })

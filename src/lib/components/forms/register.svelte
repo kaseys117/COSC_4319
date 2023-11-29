@@ -41,7 +41,7 @@
         type="email"
         placeholder="email"
         autocomplete="email"
-        pattern="[a-zA-Z0-9+_.\-]+@[a-zA-Z0-9.\-]+"
+        pattern="^[a-zA-Z0-9+_.\-]+@[a-zA-Z0-9.\-]+$"
         title="must be a valid email address"
         required
     />
@@ -95,6 +95,8 @@
     <input
         name="height-ft"
         type="number"
+        inputmode="numeric"
+        pattern="[0-9]+"
         class="input-field height-ft"
         min="3"
         max="8"
@@ -104,10 +106,23 @@
     <input
         name="height-in"
         type="number"
+        inputmode="numeric"
+        pattern="[0-9]+"
         class="input-field height-in"
         min="0"
         max="11"
         placeholder="height (in)"
+        required
+    />
+    <input
+        name="weight"
+        type="number"
+        pattern="[0-9]+[.]?[0-9]?"
+        inputmode="numeric"
+        class="input-field weight"
+        min="40"
+        max="600"
+        placeholder="weight (lbs)"
         required
     />
     <!-- Using enumerated type "activity level" on the database -->

@@ -13,7 +13,7 @@
         type="email"
         placeholder="email"
         value={form?.email ?? ""}
-        pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$"
+        pattern="^[a-zA-Z0-9+_.\-]+@[a-zA-Z0-9.\-]+$"
         title="must be a valid email address"
         required
     />
