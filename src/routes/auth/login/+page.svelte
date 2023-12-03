@@ -2,23 +2,16 @@
     import { page } from "$app/stores";
     import EmailAuth from "$lib/components/forms/login.svelte";
     import { fade } from "svelte/transition";
-    import { onMount } from "svelte";
     import IconBack from "~icons/mdi/chevron-left";
+    import { onMount } from "svelte";
 
     const url = $page.url;
 
     let showToast = url.searchParams.get("emailSent");
-    let progress = 100;
-
+    let toast;
     onMount(() => {
         if (showToast) {
-            const interval = setInterval(() => {
-                progress -= 10;
-                if (progress <= -10) {
-                    clearInterval(interval);
-                    showToast = false;
-                }
-            }, 500);
+            toast.showModal();
         }
     });
 </script>
@@ -70,33 +63,19 @@
     >
 </div>
 
-{#if showToast}
-    <div class="toast border row-1" transition:fade>
-        <p>Confirm your email before loging in.</p>
-        <div class="progress" style="width: {progress}%" />
-    </div>
-{/if}
+<dialog bind:this={toast} class="toast border" transition:fade>
+    <h1>Registered!</h1>
+    <p>Please confirm your email before loging in.</p>
+    <button class="btn-secondary" on:click={() => toast.close()}>OK</button>
+</dialog>
 
 <style>
     .row-1 {
         grid-row: 1;
         grid-column: 1;
     }
-    .toast {
-        width: 100%;
-        height: fit-content;
-        background-color: var(--color-surface-100);
-        bottom: 20vh;
-    }
-    .progress {
-        transition: width 1s linear;
-        height: 0.25em;
-        background-color: var(--color-success-500);
-        border-bottom-left-radius: var(--theme-rounded-base);
-        position: relative;
-    }
-    .toast > p {
-        margin: 1em;
+    .toast > button {
+        margin-top: 1em;
     }
     a.back-arrow {
         font-size: 4em;

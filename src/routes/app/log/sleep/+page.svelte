@@ -1,35 +1,36 @@
 <script>
-    import TodayDate from "$lib/components/date.svelte";
     import { enhance } from "$app/forms";
     export let data;
-    const uid = data.session.user.id;
 
-    let today = new Date().toISOString().split("T")[0];
+    const uid = data.session.user.id;
+    let today = new Date().toJSON().slice(0, 10);
 </script>
 
 <h1>How long did you sleep?</h1>
-<TodayDate />
 
 <form method="POST" use:enhance>
-    <input type="hidden" name="date" value={today} required />
     <input type="hidden" name="uid" value={uid} required />
-    <label class="bedtime">
+    <label class="date-label">
+        Date:
+        <input
+            type="date"
+            value={today}
+            max={today}
+            name="date"
+            class="border"
+            required
+        />
+    </label>
+    <label>
         Bedtime:
-        <br />
         <input class="border" type="time" name="bedtime" required />
     </label>
-    <br />
-    <br />
-    <label class="wakeup">
+    <label>
         Wakeup:
-        <br />
         <input class="border" type="time" name="wakeup" required />
     </label>
-    <br />
-    <br />
-    <br />
-    <a href="/app/sleep" class="btn-secondary">Cancel</a>
-    <input type="submit" class="btn-secondary submit" />
+    <a href="/app/sleep" class="btn btn-secondary">Cancel</a>
+    <button type="submit" class="btn-secondary">Submit</button>
 </form>
 
 <style>
@@ -40,6 +41,8 @@
         margin: 2em 0;
     }
     label {
+        grid-column: span 2;
+
         font-size: 1.5em;
         align-self: stretch;
     }
@@ -47,14 +50,19 @@
         padding: 0.5em;
     }
     form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        gap: 1em;
         margin: 1.5em 0;
         width: 100%;
     }
-    a {
+    a.btn {
         text-decoration: none;
+        justify-self: center;
     }
-    .submit {
-        height: 52px;
+    a.btn,
+    button {
+        height: inherit;
     }
-    
 </style>

@@ -1,20 +1,18 @@
 <script>
     import { enhance } from "$app/forms";
-    let form;
 </script>
 
 <h1>Log In</h1>
 <!-- TODO: Make form into reusable component -->
 <form method="POST" use:enhance>
-    <!-- `form?.email ?? ""` store the email into the form.email attribute, and stores an empty string if no value.  -->
     <input
         class="input-field"
         name="email"
         type="email"
         placeholder="email"
-        value={form?.email ?? ""}
-        pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$"
+        pattern="^[a-zA-Z0-9+_.\-]+@[a-zA-Z0-9.\-]+$"
         title="must be a valid email address"
+        autocomplete="email"
         required
     />
     <input
@@ -22,9 +20,10 @@
         name="password"
         type="password"
         placeholder="password"
+        autocomplete="current-password"
         required
     />
-    <button class="btn-primary">Log In</button>
+    <button type="submit" class="btn-primary">Log In</button>
 </form>
 
 <style>
