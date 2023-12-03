@@ -17,7 +17,7 @@
                 value = data.mood;
                 break;
             case "symptoms":
-                value = data.symptom_data.location;
+                value = data.symptom_data?.location ?? "-";
                 break;
             case "diet":
                 value = data.food.calories;
